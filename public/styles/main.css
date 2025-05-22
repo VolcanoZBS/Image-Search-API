@@ -1,0 +1,104 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  display: flex; /* Make body a flex container to push footer down if added */
+  flex-direction: column;
+}
+
+.container {
+  display: flex; /* <-- Key Flexbox declaration */
+  flex-grow: 1; /* Allow container to take available vertical space */
+  height: 100vh; /* Make the container take full viewport height */
+}
+
+.panel {
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in element's total width/height */
+  display: flex; /* For internal alignment of content */
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.left-panel {
+  flex: 1; /* Allow left panel to grow and take available space (e.g., 50%) */
+  background-color: #e0f2f1; /* Light teal */
+  border-right: 1px solid #ccc;
+}
+
+.right-panel {
+  flex: 1; /* Allow right panel to grow and take available space (e.g., 50%) */
+  background-color: #ffffff;
+  overflow: hidden; /* Hide overflow if image is too big */
+}
+
+/* Search Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 80%; /* Adjust as needed */
+  max-width: 400px;
+}
+
+input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #00796b; /* Dark teal */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004d40; /* Even darker teal */
+}
+
+/* Image Display Styling */
+#image-display {
+  max-width: 100%;
+  max-height: 80vh; /* Limit image height to prevent overflow */
+  object-fit: contain; /* Ensure the whole image fits without cropping */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#image-credit {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Stack panels vertically on small screens */
+      height: auto; /* Allow height to adjust */
+  }
+  .left-panel, .right-panel {
+      flex: none; /* Remove flex growing on smaller screens */
+      width: 100%; /* Take full width */
+      min-height: 50vh; /* Give them some minimum height */
+  }
+}

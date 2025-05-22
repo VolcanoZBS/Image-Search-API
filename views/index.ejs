@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>MaMuz</title>
+</head>
+<body>
+  
+  <div>
+    <div class="container">
+      <div class="panel left-panel">
+        <h1>Insert a keyword for the image you want to see</h1>
+        <form id="search-form" method="GET" action="/">
+          <input type="text" name="query" placeholder="Enter keywords (e.g., 'nature', 'city', 'cats')">
+          <button type="submit">Search</button>
+          <p id="error-message"></p>
+        </form>
+      </div>
+      <div class="panel right-panel">
+        <h2>Displayed Image</h2>
+        <% if (imageUrl) { %>
+          <img src="<%= imageUrl %>" alt="<%= photoDescription %>">
+          <p class="credit">Photo by <a href="<%= photographerProfileLink %>"><%= photographerName %></a> on <a href="https://unsplash.com">Unsplash</a></p>
+        <% } else { %>
+          <p>No image found</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
